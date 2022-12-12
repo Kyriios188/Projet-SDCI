@@ -13,6 +13,7 @@ c'est statique ? Du coup qu'est ce que j'ai à stocker en variables d'environnem
 -> Pour curl le metadata-server j'ai du faire un network docker et je me connecte au 172.19.0.2.
 C'est autorisé pour le metadata-server ? ça va poser problème ? Si faut changer, comment j'autorise le curl
 sans network docker ? Avoir tous les containers dans le même network semble contre productif.
+-> à quoi sert application.js qui doit être créé en amont ? ?
 
 ## COMMANDS
 
@@ -21,4 +22,4 @@ docker run -itd -p 5000:5000 --network=net --name metasrv kyriios188/metadata-se
 
 NODEJS SERVER :
 docker build -t nodejs .
-docker run -itd --network=net --name nodejs nodejs
+docker run -itd --network=net --name nodejs -e CONTAINER_TYPE="server" nodejs
