@@ -20,4 +20,4 @@ docker run -itd -p 5000:5000 --network=net --name metasrv kyriios188/metadata-se
 
 NODEJS SERVER :
 docker build -t nodejs .
-docker run -itd --network=net --name nodejs -e CONTAINER_TYPE="server" nodejs
+docker run -itd --network=net --name nodejs -e CONTAINER_TYPE="srv" nodejs
