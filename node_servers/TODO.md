@@ -1,8 +1,6 @@
 ## TODO
 
--> Add argument to nodejs run to specify type of container being run
--> Use that type to curl the right url
--> finish the script
+
 
 ## QUESTIONS
 
