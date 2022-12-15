@@ -4,6 +4,8 @@ JS_FILE=""
 echo "Metadata server URL: $SERVER_URL"
 
 LOCAL_IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
+echo "Sending IP:$LOCAL_IP to the metadata server"
+curl -s "${SERVER_URL}ip?ct_type=$CONTAINER_TYPE&ip=$LOCAL_IP"
 
 if [ $CONTAINER_TYPE == "srv" ]; then
     JS_FILE="server.js"

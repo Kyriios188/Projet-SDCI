@@ -18,7 +18,7 @@ sans network docker ? Avoir tous les containers dans le même network semble con
 ## COMMANDS
 
 METADATA SERVER :
-docker run -itd -p 5000:5000 --network=net --name metasrv kyriios188/metadata-server
+docker run -itd --restart unless-stopped -p 5000:5000 --network=net --name metasrv kyriios188/metadata-server
 
 NODEJS SERVER :
 docker build -t nodejs .
