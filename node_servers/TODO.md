@@ -13,6 +13,8 @@ C'est autorisé pour le metadata-server ? ça va poser problème ? Si faut chang
 sans network docker ? Avoir tous les containers dans le même network semble contre productif.
 -> à quoi sert application.js qui doit être créé en amont ? ?
 
+-> AH le local IP est déterminé par le container qui se lance et se set comme variable d'env ?
+
 ## COMMANDS
 
 METADATA SERVER :
