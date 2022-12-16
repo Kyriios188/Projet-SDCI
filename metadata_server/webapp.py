@@ -23,7 +23,9 @@ def ip():
    with open(filename, 'r') as f:
       metadata = json.load(f)
       
-      # Change the container's local ip value, though it's useless
+      # Change the container's local ip value
+      # It's more logical to check a ct's ip using the metadata[ct][local_ip]
+      # compared to a child's remote_ip value.
       metadata[ct_type]["local_ip"] = reported_ip
       
       # Change the remote_ip value of the child containers

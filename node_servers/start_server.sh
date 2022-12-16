@@ -1,5 +1,5 @@
 echo "Starting container with type: $CONTAINER_TYPE"
-SERVER_URL="http://172.18.0.2:5000/"
+SERVER_URL="http://172.17.0.2:5000/"
 JS_FILE=""
 echo "Metadata server URL: $SERVER_URL"
 
@@ -28,7 +28,7 @@ elif [ $CONTAINER_TYPE == "app" ]; then
 
 fi
 
-SERVER_OUTPUT=$(curl -s $SERVER_URL$CONTAINER_TYPE | tr \' \")
+SERVER_OUTPUT=$(curl -s "${SERVER_URL}metadata/${CONTAINER_TYPE}" | tr \' \")
 
 LOCAL_PORT=$(echo $SERVER_OUTPUT | jq .local_port)
 LOCAL_NAME=$(echo $SERVER_OUTPUT | jq .local_name)
