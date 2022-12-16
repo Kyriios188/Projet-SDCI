@@ -6,7 +6,7 @@ from flask import Flask, request
 webapp = Flask(__name__)
 
 
-@webapp.route('/metadata/<str:ct_type>')
+@webapp.route('/metadata/<ct_type>')
 def metadata(ct_type: str):
    with open('metadata.json', 'r') as j:
       metadata = json.loads(j.read())
