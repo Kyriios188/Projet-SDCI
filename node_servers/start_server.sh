@@ -4,24 +4,24 @@ JS_FILE=""
 echo "Metadata server URL: $SERVER_URL"
 
 LOCAL_IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
-echo "Sending IP:$LOCAL_IP to the metadata server"
+echo "Updating LOCAL_IP:$LOCAL_IP to the metadata server"
 curl -s "${SERVER_URL}ip?ct_type=$CONTAINER_TYPE&ip=$LOCAL_IP"
 
-if [ $CONTAINER_TYPE == "srv" ]; then
+if [ "$CONTAINER_TYPE" = "srv" ]; then
     JS_FILE="server.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/server.js
 
-elif [ $CONTAINER_TYPE == "dev1" -o $CONTAINER_TYPE == "dev2" -o $CONTAINER_TYPE == "dev3" ]; then
+elif [ "$CONTAINER_TYPE" = "dev1" -o "$CONTAINER_TYPE" = "dev2" -o "$CONTAINER_TYPE" = "dev3" ]; then
 
     JS_FILE="device.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/device.js
 
-elif [ $CONTAINER_TYPE == "gwi" -o $CONTAINER_TYPE == "gwf1" -o $CONTAINER_TYPE == "gwf2" -o $CONTAINER_TYPE == "gwf3" ]; then
+elif [ "$CONTAINER_TYPE" = "gwi" -o "$CONTAINER_TYPE" = "gwf1" -o "$CONTAINER_TYPE" = "gwf2" -o "$CONTAINER_TYPE" = "gwf3" ]; then
 
     JS_FILE="gateway.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/gateway.js
 
-elif [ $CONTAINER_TYPE == "app" ]; then
+elif [ "$CONTAINER_TYPE" = "app" ]; then
 
     JS_FILE="application.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/application.js
@@ -40,7 +40,7 @@ SEND_PERIOD=$(echo $SERVER_OUTPUT | jq .send_period)
 echo "Starting $JS_FILE at $LOCAL_IP:$LOCAL_PORT as $LOCAL_NAME"
 
 # We have all the arguments we need
-if [ $CONTAINER_TYPE == "srv" ]; then
+if [ "$CONTAINER_TYPE" = "srv" ]; then
     node $JS_FILE --local_ip $LOCAL_IP --local_port $LOCAL_PORT --local_name $LOCAL_NAME
 
 # We need remote arguments
@@ -48,18 +48,18 @@ else
 
     echo "Setting parent as $REMOTE_IP:$REMOTE_PORT ($REMOTE_NAME)"
 
-    if [ $CONTAINER_TYPE == "gwi" -o $CONTAINER_TYPE == "gwf1" -o $CONTAINER_TYPE == "gwf2" -o $CONTAINER_TYPE == "gwf3" ]; then
+    if [ "$CONTAINER_TYPE" = "gwi" -o "$CONTAINER_TYPE" = "gwf1" -o "$CONTAINER_TYPE" = "gwf2" -o "$CONTAINER_TYPE" = "gwf3" ]; then
 
         node $JS_FILE --local_ip $LOCAL_IP --local_port $LOCAL_PORT --local_name $LOCAL_NAME --remote_ip $REMOTE_IP --remote_port $REMOTE_PORT --remote_name $REMOTE_NAME
 
 
     # We need remote arguments and send_period
-    elif [ $CONTAINER_TYPE == "dev1" -o $CONTAINER_TYPE == "dev2"  -o $CONTAINER_TYPE == "dev3" ]; then
+    elif [ "$CONTAINER_TYPE" = "dev1" -o "$CONTAINER_TYPE" = "dev2"  -o "$CONTAINER_TYPE" = "dev3" ]; then
 
         echo "Send period: $SEND_PERIOD"
         node $JS_FILE --send_period $SEND_PERIOD --local_ip $LOCAL_IP --local_port $LOCAL_PORT --local_name $LOCAL_NAME --remote_ip $REMOTE_IP --remote_port $REMOTE_PORT --remote_name $REMOTE_NAME
 
-    elif [ $CONTAINER_TYPE == "app" ]; then
+    elif [ "$CONTAINER_TYPE" = "app" ]; then
 
         echo "Send period: $SEND_PERIOD"
         node $JS_FILE --remote_ip $REMOTE_IP --remote_port $REMOTE_PORT --device_name "dev1" --send_period $SEND_PERIOD
