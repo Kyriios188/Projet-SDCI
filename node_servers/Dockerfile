@@ -5,14 +5,17 @@ ADD . /code
 
 RUN chmod -R 777 /code
 
-RUN apt update -y 
-RUN apt install -y \
+RUN apt-get update -y
+RUN apt-get install -y \
 	nodejs \
 	npm \
 	nano \
 	wget \
 	curl \
-	jq	
+	jq \
+	dos2unix
+
+RUN npm config set strict-ssl false
 
 RUN npm install express yargs systeminformation request
 
