@@ -54,7 +54,6 @@ def create_topology():
 
     net.addLink(gwi_switch, gwf_switch)
     net.addLink(gwi_switch, out_switch)
-    net.addLink(gwf_switch, out_switch)
 
     net.addLink(dc1, out_switch)
 
