@@ -43,10 +43,10 @@ def create_topology():
     dev2 = net.addDocker('dev2', dimage='ubuntu:trusty', mem_limit="512m", environment={'CONTAINER_TYPE': 'dev2'})
     dev3 = net.addDocker('dev3', dimage='ubuntu:trusty', mem_limit="512m", environment={'CONTAINER_TYPE': 'dev3'})
 
-    gwf_switch = net.addSwitch('gwf_switch')
-    out_switch = net.addSwitch('out_switch')
-    gwi_switch = net.addSwitch('gwi_switch')
-    srv_switch = net.addSwitch('srv_switch')
+    gwf_switch = net.addSwitch('s1')
+    out_switch = net.addSwitch('s2')
+    gwi_switch = net.addSwitch('s3')
+    srv_switch = net.addSwitch('s4')
 
     net.addLink(dev1, gwf1)
     net.addLink(dev2, gwf2)
