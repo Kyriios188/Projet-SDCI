@@ -43,27 +43,27 @@ def create_topology():
     dev2 = net.addDocker('dev2', dimage='ubuntu:trusty', mem_limit="512m", environment={'CONTAINER_TYPE': 'dev2'})
     dev3 = net.addDocker('dev3', dimage='ubuntu:trusty', mem_limit="512m", environment={'CONTAINER_TYPE': 'dev3'})
 
-    s1 = net.addSwitch('s1')
-    s2 = net.addSwitch('s2')
-    s3 = net.addSwitch('s3')
-    s4 = net.addSwitch('s4')
+    gwf_switch = net.addSwitch('s1')
+    out_switch = net.addSwitch('s2')
+    gwi_switch = net.addSwitch('s3')
+    srv_switch = net.addSwitch('s4')
 
     net.addLink(dev1, gwf1)
     net.addLink(dev2, gwf2)
     net.addLink(dev3, gwf3)
 
-    net.addLink(s1, gwf1)
-    net.addLink(s1, gwf2)
-    net.addLink(s1, gwf3)
+    net.addLink(gwf_switch, gwf1)
+    net.addLink(gwf_switch, gwf2)
+    net.addLink(gwf_switch, gwf3)
 
-    net.addLink(s3, s1)
-    net.addLink(s3, s2)
+    net.addLink(gwi_switch, gwf_switch)
+    net.addLink(gwi_switch, out_switch)
 
-    net.addLink(dc1, s2)
+    net.addLink(dc1, out_switch)
 
-    net.addLink(gwi, s3)
-    net.addLink(gwi, s4)
-    net.addLink(srv, s4)
+    net.addLink(gwi, gwi_switch)
+    net.addLink(gwi, srv_switch)
+    net.addLink(srv, srv_switch)
     net.addLink(srv, app)
 
     net.start()
