@@ -1,3 +1,4 @@
+touch i_started
 echo "Starting container with type: $CONTAINER_TYPE"
 SERVER_URL="http://172.17.0.2:5000/"
 JS_FILE=""
