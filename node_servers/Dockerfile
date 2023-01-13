@@ -44,8 +44,9 @@ RUN npm install express yargs systeminformation request
 
 RUN dos2unix start_server.sh
 
-# set entry point for emulator gatekeeper
-ENV VIM_EMU_CMD "sh start_server.sh > logs"
-ENV VIM_EMU_CMD_STOP "echo 'Stopping the container now.'"
+# This doesn't work :)
+#ENV VIM_EMU_CMD "sh start_server.sh > logs"
+#ENV VIM_EMU_CMD_STOP "echo 'Stopping the container now.'"
 
-CMD /bin/bash
+ENTRYPOINT sh start_server.sh > logs ; tail -f /dev/null
+

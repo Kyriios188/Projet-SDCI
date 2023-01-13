@@ -1,11 +1,7 @@
 ## TODO
 
--> Le metadata server n'a pas la bonne adresse IP pour dev3. Dev3 ne met pas à jour
-l'adresse ? J'ai cassé quelque chose en détruisant tout ?
-
--> Dernière séance : j'ai modifié le code du metasrv qui est présent ici
-et normalement dans la VM donc c'est pas ça le problème a priori (check ce qui 
-en tourne --restart unless-stopped)
+-> give up ce qui est demandé par le prof : il ne comprend rien. 
+Fait un ENTRYPOINT avec le start-server.sh
 
 
 
