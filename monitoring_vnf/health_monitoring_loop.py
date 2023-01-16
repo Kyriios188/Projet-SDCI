@@ -1,13 +1,10 @@
 import sys
 import requests
 import json
+from time import sleep
 
 
-gwi_ip = sys.argv[1]
-gwi_port = sys.argv[2]
-
-health_url = "http://"+gwi_ip+":"+gwi_port+"/health"
-
+health_url = sys.argv[1]
 values_list = []
 
 while True:
@@ -19,4 +16,4 @@ while True:
         values_list = values_list[1:]
 
     print(values_list)
-
+    sleep(1)
