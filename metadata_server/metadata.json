@@ -1,73 +1,73 @@
 {
   "srv": {
-    "local_ip": "172.18.0.1",
+    "local_ip": "10.0.0.1",
     "local_port": "8080",
     "local_name": "srv"
   },
   "gwi": {
-    "remote_ip": "172.18.0.1",
+    "remote_ip": "10.0.0.1",
     "remote_port": "8080",
     "remote_name": "srv",
-    "local_ip": "172.17.0.2",
+    "local_ip": "10.0.0.2",
     "local_port": "8181",
     "local_name": "gwi"
   },
   "gwf1": {
-    "remote_ip": "172.17.0.2",
+    "remote_ip": "10.0.0.2",
     "remote_port": "8181",
     "remote_name": "gwi",
-    "local_ip": "172.17.0.3",
+    "local_ip": "10.0.0.3",
     "local_port": "8282",
     "local_name": "gwf1"
   },
   "gwf2": {
-    "remote_ip": "172.17.0.2",
+    "remote_ip": "10.0.0.2",
     "remote_port": "8181",
     "remote_name": "gwi",
-    "local_ip": "172.17.0.4",
+    "local_ip": "10.0.0.4",
     "local_port": "8282",
     "local_name": "gwf2"
   },
   "gwf3": {
-    "remote_ip": "172.17.0.2",
+    "remote_ip": "10.0.0.2",
     "remote_port": "8181",
     "remote_name": "gwi",
-    "local_ip": "172.17.0.5",
+    "local_ip": "10.0.0.5",
     "local_port": "8282",
     "local_name": "gwf3"
   },
   "dev1": {
-    "remote_ip": "172.17.0.3",
+    "remote_ip": "10.0.0.3",
     "remote_port": "8282",
     "remote_name": "gwf1",
-    "local_ip": "172.17.0.6",
+    "local_ip": "10.0.0.6",
     "local_port": "9001",
     "local_name": "dev1",
     "send_period": 3000
   },
   "dev2": {
-    "remote_ip": "172.17.0.4",
+    "remote_ip": "10.0.0.4",
     "remote_port": "8282",
     "remote_name": "gwf2",
-    "local_ip": "172.17.0.7",
+    "local_ip": "10.0.0.7",
     "local_port": "9001",
     "local_name": "dev2",
     "send_period": 3000
   },
   "dev3": {
-    "remote_ip": "172.17.0.5",
+    "remote_ip": "10.0.0.5",
     "remote_port": "8282",
     "remote_name": "gwf3",
-    "local_ip": "172.17.0.8",
+    "local_ip": "10.0.0.8",
     "local_port": "9001",
     "local_name": "dev3",
     "send_period": 3000
   },
   "app": {
-    "remote_ip": "172.17.0.1",
+    "remote_ip": "10.0.0.1",
     "remote_port": "8080",
     "remote_name": "srv",
-    "local_ip": "172.17.0.9",
+    "local_ip": "10.0.0.9",
     "local_port": "8000",
     "local_name": "app",
     "device_name": "dev1",
