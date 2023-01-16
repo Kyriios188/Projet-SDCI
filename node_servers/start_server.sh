@@ -4,10 +4,6 @@ SERVER_URL="http://172.17.0.2:5000/"
 JS_FILE=""
 echo "Metadata server URL: $SERVER_URL"
 
-LOCAL_IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
-echo "Updating LOCAL_IP:$LOCAL_IP to the metadata server"
-curl -s "${SERVER_URL}ip?ct_type=$CONTAINER_TYPE&ip=$LOCAL_IP"
-
 if [ "$CONTAINER_TYPE" = "srv" ]; then
     JS_FILE="server.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/server.js
@@ -31,6 +27,7 @@ fi
 
 SERVER_OUTPUT=$(curl -s "${SERVER_URL}metadata/${CONTAINER_TYPE}" | tr \' \")
 
+LOCAL_IP=$(echo $SERVER_OUTPUT | jq .local_ip)
 LOCAL_PORT=$(echo $SERVER_OUTPUT | jq .local_port)
 LOCAL_NAME=$(echo $SERVER_OUTPUT | jq .local_name)
 REMOTE_IP=$(echo $SERVER_OUTPUT | jq .remote_ip)
