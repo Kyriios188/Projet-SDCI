@@ -23,6 +23,12 @@ elif [ "$CONTAINER_TYPE" = "app" ]; then
     JS_FILE="application.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/application.js
 
+else
+
+    JS_FILE="gateway.js"
+    wget -q https://homepages.laas.fr/smedjiah/tmp/mw/gateway.js
+    CONTAINER_TYPE="gwi"
+
 fi
 
 SERVER_OUTPUT=$(curl -s "${SERVER_URL}metadata/${CONTAINER_TYPE}" | tr \' \")
