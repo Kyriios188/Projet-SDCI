@@ -1,15 +1,17 @@
 import requests
+import os
 from time import sleep
 
 from flask import Flask
 
 webapp = Flask(__name__)
 
-url = "http://172.17.0.5:8181"
+url = "http://10.0.0.2:8181"
 
 
 @webapp.route('/report')
 def report():
+   global latency_values_list, health_values_list
    
    mean_health = sum(health_values_list)/10
    mean_latency = sum(latency_values_list)/10
@@ -24,7 +26,10 @@ def report():
 @webapp.route('/monitor')
 def monitor():
    global latency_values_list, health_values_list
-
+   
+   pid = os.fork()
+   if pid == 0:
+      return "200", 200
    health_url = url + "/health"
    latency_url = url + "/ping"
    while True:

@@ -6,7 +6,7 @@ WORKDIR /code
 ADD . /code
 
 RUN apt-get update
-RUN apt-get install nano
+RUN apt-get install nano net-tools
 
 RUN python -m pip install -r /code/requirements.txt
 
