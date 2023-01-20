@@ -1,0 +1,12 @@
+# Start the load balancer
+curl -X PUT http://127.0.0.1:5001/restapi/compute/dc1/lb_vnf -H 'Content-Type: application/json' -d '{"image":"lb_vnf:latest", "network":"(id=vnflb-eth0,ip=10.0.0.30/24, port=5002)"}'
+
+# Start the secondary gwi
+curl -X PUT http://127.0.0.1:5001/restapi/compute/dc1/vnfgwi -H 'Content-Type: application/json' -d '{"image":"node_server:latest", "network":"(id=vnfgwi-eth0,ip=10.0.0.22/24, port=8181)"}'
+
+# Test the load balancer
+docker exec -it mn.srv bash
+
+# cette commande renvoie la réponse des différentes gateways intermédiaires
+curl http://10.0.0.30:5002/health
+
