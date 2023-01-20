@@ -12,6 +12,14 @@
     "local_port": 8181,
     "local_name": "gwi"
   },
+  "gwi_vnf": {
+    "remort_ip": "10.0.0.1",
+    "remote_port": 8080,
+    "remote_name": "srv",
+    "local_ip": "10.0.0.22",
+    "local_port": 8181,
+    "local_name": "gwi_vnf"
+  },
   "gwf1": {
     "remote_ip": "10.0.0.2",
     "remote_port": 8181,
