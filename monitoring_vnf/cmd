@@ -1,0 +1,3 @@
+curl -X PUT http://127.0.0.1:5001/restapi/compute/dc1/vnf -H 'Content-Type: application/json' -d '{"image":"vnf:latest", "network":"(id=vnf-eth0,ip=10.0.0.21/24, port=5001)"}'
+
+curl -X DELETE http://127.0.0.1:5001/restapi/compute/dc1/vnf
