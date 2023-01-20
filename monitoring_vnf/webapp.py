@@ -1,6 +1,4 @@
-import sys
 import requests
-import json
 from time import sleep
 
 from flask import Flask
@@ -8,8 +6,6 @@ from flask import Flask
 webapp = Flask(__name__)
 
 url = "http://172.17.0.5:8181"
-latency_values_list = []
-health_values_list = []
 
 
 @webapp.route('/report')
@@ -22,11 +18,12 @@ def report():
       'health': str(mean_health),
       'latency': str(mean_latency)
    }
-   return(str(reponse))
+   return(str(response))
 
 
 @webapp.route('/monitor')
 def monitor():
+   global latency_values_list, health_values_list
 
    health_url = url + "/health"
    latency_url = url + "/ping"
@@ -53,7 +50,7 @@ def monitor():
 
 
 if __name__ == '__main__':
-
+   global latency_values_list, health_values_list
    latency_values_list = []
    health_values_list = []
 
