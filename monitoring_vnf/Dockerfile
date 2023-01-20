@@ -6,10 +6,10 @@ WORKDIR /code
 ADD . /code
 
 RUN apt-get update
-RUN apt-get install nano net-tools
+RUN apt-get install -y nano net-tools procps netcat
 
 RUN python -m pip install -r /code/requirements.txt
 
 COPY . .
 
-CMD ["python3", "webapp.py"]
+ENTRYPOINT ["python3", "webapp.py"]
