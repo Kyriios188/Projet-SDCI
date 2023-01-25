@@ -1,4 +1,0 @@
-Use Case #1a Deploy Secondary GI for zone 1
-
-
-Use Case #2a Monitoring of GF DEBIT

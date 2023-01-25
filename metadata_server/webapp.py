@@ -1,7 +1,5 @@
 import json
-import uuid
-import os
-from flask import Flask, request
+from flask import Flask
 
 webapp = Flask(__name__)
 

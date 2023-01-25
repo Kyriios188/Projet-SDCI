@@ -10,6 +10,10 @@ import java.util.Random;
  */
 class MANOAPI {
 
+    void deploy_monitoring_vnf() {
+
+    }
+
     String deploy_gw(Map<String, String> vnfinfos) {
         String ip = "192.168.0." + (new Random().nextInt(253) + 1);
         Main.logger(this.getClass().getSimpleName(), "Deploying VNF ...");

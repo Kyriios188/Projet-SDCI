@@ -27,6 +27,7 @@ class Main {
 
         Thread thread_m = new Thread(() -> {
             try {
+
                 monitor.start();
             } catch (Exception e) {
                 e.printStackTrace();

@@ -3,9 +3,6 @@ import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 import com.github.signaflo.timeseries.model.arima.Arima;
 import com.github.signaflo.timeseries.model.arima.ArimaOrder;
-import de.vandermeer.asciitable.AsciiTable;
-import de.vandermeer.asciitable.CWC_LongestWord;
-import de.vandermeer.asciithemes.a7.A7_Grids;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -127,23 +124,6 @@ class Monitor {
         }
         System.out.println();
         return p;
-    }
-
-    private void print_nice_rs(ResultSet rs) throws SQLException {
-        rs.first();
-        AsciiTable at = new AsciiTable();
-        at.addRule();
-        at.addRow("Timestamp", "Latency_in_" + Knowledge.gw);
-        at.addRule();
-        while (rs.next()) {
-            at.addRow(rs.getTimestamp("id").getTime(), rs.getString("latency"));
-            at.addRule();
-        }
-        at.getContext().setGrid(A7_Grids.minusBarPlusEquals());
-        at.getRenderer().setCWC(new CWC_LongestWord());
-        System.out.println(this.getClass().getSimpleName() + " : ");
-        System.out.println(at.render());
-
     }
 
     private void update_symptom(String symptom) {
