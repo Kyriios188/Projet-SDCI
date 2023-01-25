@@ -1,3 +1,6 @@
+import jdk.nashorn.internal.parser.JSONParser;
+import org.h2.util.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +14,15 @@ import java.util.Random;
  */
 class MANOAPI {
 
-    void deploy_monitoring_vnf() {
-        String command = "curl -s -X PUT http://127.0.0.1:5001/restapi/compute/dc1/vnf -H 'Content-Type: application/json' -d '{\"image\":\"vnf:latest\", \"network\":\"(id=vnf-eth0,ip=10.0.0.20/24,port=5001)\"}'";
+    String deploy_monitoring_vnf() {
+        String command = "curl -s -X PUT http://127.0.0.1:5001/restapi/compute/dc1/vnf -H 'Content-Type: application/json' -d '{\"image\":\"vnf:latest\", \"network\":\"(id=vnf-eth0,ip=10.0.0.20/24)\"}'";
+        Main.logger(this.getClass().getSimpleName(), command);
         try {
-            Shell.executeCmd(command);
+            return Shell.executeCmd(command).get(0);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return "";
     }
 
     String deploy_gw(Map<String, String> vnfinfos) {
