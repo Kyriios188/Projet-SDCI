@@ -12,7 +12,7 @@ import java.util.Random;
 class MANOAPI {
 
     void deploy_monitoring_vnf() {
-        String command = "curl -X PUT http://127.0.0.1:5001/restapi/compute/dc1/vnf -H 'Content-Type: application/json' -d '{\"image\":\"vnf:latest\", \"network\":\"(id=vnf-eth0,ip=10.0.0.21/24, port=5001)\"}'";
+        String command = "curl -s -X PUT http://127.0.0.1:5001/restapi/compute/dc1/monitoring-vnf -H 'Content-Type: application/json' -d '{\"image\":\"vnf:latest\", \"network\":\"(id=vnf-eth0,ip=10.0.0.21/24, port=5001)\"}'";
         try {
             Shell.executeCmd(command);
         } catch (IOException e) {
