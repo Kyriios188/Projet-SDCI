@@ -81,7 +81,7 @@ class Monitor {
                 try {
                     //TODO: Remove this
                     Thread.sleep(period);
-                    Main.shared_knowledge.insert_in_tab(new java.sql.Timestamp(new java.util.Date().getTime()), get_fake_data());
+                    Main.shared_knowledge.insert_in_tab(new java.sql.Timestamp(new java.util.Date().getTime()), get_data());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
