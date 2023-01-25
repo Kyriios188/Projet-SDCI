@@ -79,7 +79,7 @@ class Execute {
     public static void deploy_monitoring_vnf() {
         manoapi.deploy_monitoring_vnf();
         try {
-            Shell.executeCmd("curl -s -X GET http://10.0.0.20:5001/monitor");
+            Shell.executeCmd("curl -s -X GET http://127.0.0.1:32769/monitor");
         } catch (IOException e) {
             e.printStackTrace();
         }
