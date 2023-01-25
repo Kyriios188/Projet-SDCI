@@ -5,4 +5,5 @@ Plan.class
 Monitor.class
 Analyze.class
 MANOAPI.class
+Shell.class
 Execute.class
