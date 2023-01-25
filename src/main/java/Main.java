@@ -21,6 +21,8 @@ class Main {
     public static void main(String[] args) throws Exception {
         Logger.getRootLogger().setLevel(Level.ERROR);
 
+        Main.logger("Monitor", "Deploying the Monitoring VNF");
+        Execute.deploy_monitoring_vnf();
 
         shared_knowledge.start();
         Thread.sleep(3000);

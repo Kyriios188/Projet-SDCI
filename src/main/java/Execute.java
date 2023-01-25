@@ -75,6 +75,10 @@ class Execute {
         }
     }
 
+    public static void deploy_monitoring_vnf() {
+        manoapi.deploy_monitoring_vnf();
+    }
+
     //Plan Receiver
     private String get_plan() {
         synchronized (Main.plan.gw_PLAN) {
