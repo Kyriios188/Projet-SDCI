@@ -1,6 +1,6 @@
 touch i_started
 echo "Starting container with type: $CONTAINER_TYPE"
-SERVER_URL="http://172.17.0.2:5000/"
+SERVER_URL="http://172.17.0.3:5000/"
 JS_FILE=""
 echo "Metadata server URL: $SERVER_URL"
 
@@ -27,7 +27,7 @@ else
 
     JS_FILE="gateway.js"
     wget -q https://homepages.laas.fr/smedjiah/tmp/mw/gateway.js
-    CONTAINER_TYPE="gwi"
+    CONTAINER_TYPE="gwi_vnf"
 
 fi
 
@@ -52,7 +52,7 @@ else
 
     echo "Setting parent as $REMOTE_IP:$REMOTE_PORT ($REMOTE_NAME)"
 
-    if [ "$CONTAINER_TYPE" = "gwi" -o "$CONTAINER_TYPE" = "gwf1" -o "$CONTAINER_TYPE" = "gwf2" -o "$CONTAINER_TYPE" = "gwf3" ]; then
+    if [ "$CONTAINER_TYPE" = "gwi" -o "$CONTAINER_TYPE" = "gwi_vnf" -o "$CONTAINER_TYPE" = "gwf1" -o "$CONTAINER_TYPE" = "gwf2" -o "$CONTAINER_TYPE" = "gwf3" ]; then
 
         node $JS_FILE --local_ip $LOCAL_IP --local_port $LOCAL_PORT --local_name $LOCAL_NAME --remote_ip $REMOTE_IP --remote_port $REMOTE_PORT --remote_name $REMOTE_NAME
 
