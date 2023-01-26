@@ -8,15 +8,10 @@ public class Shell {
 
     public static List<String> executeCmd(String cmd) throws IOException {
 
-        Process process = Runtime.getRuntime().exec(cleanCmd(cmd));
-        System.out.println(cleanCmd(cmd));
+        Process process = Runtime.getRuntime().exec(cmd);
         List<String> output = printCmdOutput(process);
         printCmdErrors(process);
         return output;
-    }
-
-    static private String cleanCmd(String cmd) {
-        return cmd.replace("\\", ".");
     }
 
     static private List<String> printCmdOutput(Process process) throws IOException {

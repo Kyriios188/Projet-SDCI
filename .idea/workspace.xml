@@ -54,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="fr.laas.sara.sdci.gctrl [clean,install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
@@ -96,6 +96,8 @@
       <workItem from="1670600305836" duration="668000" />
       <workItem from="1670601026643" duration="92000" />
       <workItem from="1670601139033" duration="713000" />
+      <workItem from="1674747567156" duration="301000" />
+      <workItem from="1674749819969" duration="1060000" />
     </task>
     <servers />
   </component>
